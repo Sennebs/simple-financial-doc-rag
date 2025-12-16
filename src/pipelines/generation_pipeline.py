@@ -19,12 +19,15 @@ def format_documents(documents: list[Document]):
     Formats a list of documents into a single string with source markers.
     """
     context = []
+    sources = []
 
     for i, doc in enumerate(documents, start=1):
         source = doc.metadata.get("source", "Unknown Source")
-        context.append(f"Source {i}: {source}\n{doc.page_content}")
 
-    return "\n\n".join(context)
+        context.append(f"Source {i}: {source}\n{doc.page_content}")
+        sources.append(source)
+
+    return "\n\n".join(context), sorted(set(sources))
 
 
 def generate_answer(query: str, k: int = 5):
@@ -38,15 +41,13 @@ def generate_answer(query: str, k: int = 5):
         logger.warning(f"No documents retrieved for query: {query}")
         return ""
 
-    context = format_documents(documents)
-
-    # Initialize Groq LLM
+    context, sources = format_documents(documents)
 
     system_prompt = (
         "You are a helpful assistant answering questions based on internal documents.\n"
         "Use ONLY the provided context to answer the question.\n"
         "If the answer is not in the context, say you do not know.\n"
-        "Be concise, factual, and professional."
+        "Be concise, factual, and professional.\n"
     )
 
     prompt = ChatPromptTemplate.from_messages(
@@ -61,4 +62,6 @@ def generate_answer(query: str, k: int = 5):
 
     chain = prompt | llm | parser
 
-    return chain.invoke({"context": context, "query": query})
+    answer = chain.invoke({"context": context, "query": query})
+
+    return {"answer": answer.strip(), "sources": sources}

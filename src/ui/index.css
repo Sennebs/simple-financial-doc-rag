@@ -1,0 +1,36 @@
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+h2,
+h3 {
+    font-size: 1.4rem;
+}
+
+textarea {
+    font-size: 1.05rem !important;
+    line-height: 1.6;
+}
+
+input {
+    font-size: 1.05rem !important;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#answer {
+    font-size: 1.1rem !important;
+}
+
+#sources {
+    font-size: 0.95rem !important;
+    opacity: 0.9;
+}

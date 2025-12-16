@@ -68,9 +68,9 @@ def extract_and_clean_pdf(pdf_path: str) -> list[tuple[int, str]]:
     return cleaned_pages
 
 
-def pdf_to_full_text(pdf_path: str) -> str:
+def pdf_to_full_text(pdf_path: str) -> dict[str, str]:
     """
-    Combines pages into one long text with page markers.
+    Converts PDF to dictionary with full text and metadata.
     """
     extracted_pages = extract_and_clean_pdf(pdf_path)
 
