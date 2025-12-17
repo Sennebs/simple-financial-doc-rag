@@ -1,19 +1,19 @@
 # Financial Document RAG (Retrieval-Augmented Generation)
 
-A powerful portfolio project demonstrating how to build a Retrieval-Augmented Generation (RAG) system specialized for financial documents (Annual Reports). This application allows users to ask complex questions about financial performance, risks, and strategies across multiple companies (Apple, NVIDIA, Tesla, Alphabet, AB InBev) and receive accurate, source-cited answers.
+Portfolio project demonstrating a Retrieval-Augmented Generation (RAG) system specialized for financial documents (Annual Reports). This application allows users to ask complex questions about financial performance, risks, and strategies across multiple companies (Apple, NVIDIA, Tesla, Alphabet, AB InBev) and receive accurate, source-cited answers.
 
 ## 🚀 Features
 
 *   **Financial Domain Specialization**: Tailored to process and understand annual reports (PDFs).
 *   **RAG Architecture**: Uses ChromaDB for vector storage and Groq (Llama 3) for high-speed, accurate generation.
 *   **Intelligent Chunking**: Custom chunking strategy ensuring page-level citations.
-*   **Interactive UI**: Modern, clean web interface built with **Gradio**.
+*   **Interactive UI**: Simple, clean web interface built with **Gradio**.
 *   **Source Citations**: Every answer includes precise references to the source document and page number.
 
 ## 🛠️ Tech Stack
 
 *   **Language**: Python 3.10+
-*   **LLM**: [Groq](https://groq.com/) (Llama 3.3 70B Versatile) for ultra-fast inference.
+*   **LLM**: [Groq](https://groq.com/) (Llama 3.3 70B Versatile) for fast inference.
 *   **Vector Database**: [ChromaDB](https://www.trychroma.com/) (local persistent storage).
 *   **Embeddings**: HuggingFace (`sentence-transformers/all-MiniLM-L6-v2`).
 *   **UI Framework**: [Gradio](https://www.gradio.app/).
@@ -46,7 +46,7 @@ financial-document-rag/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/financial-document-rag.git
+git clone https://github.com/sebossch/financial-document-rag.git
 cd financial-document-rag
 ```
 
